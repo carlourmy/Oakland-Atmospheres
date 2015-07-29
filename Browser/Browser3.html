@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <style type="text/css">
+
+body {
+    background-color: rgb(255,250,238);
+}
+
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var launch1 = [{
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 101900,
+      "CALCGPH" : 6,
+      "TEMP" : 2982,
+      "RH" : 504,
+      "UWND" : 44,
+      "VWND" : -12
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 100000,
+      "CALCGPH" : 170,
+      "TEMP" : 2978,
+      "RH" : 386,
+      "UWND" : 44,
+      "VWND" : -25
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 97200,
+      "CALCGPH" : 411,
+      "TEMP" : 2970,
+      "RH" : 252,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 92500,
+      "CALCGPH" : 840,
+      "TEMP" : 2954,
+      "RH" : 187,
+      "UWND" : 16,
+      "VWND" : -59
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 87500,
+      "CALCGPH" : 1323,
+      "TEMP" : 2936,
+      "RH" : 144,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 85000,
+      "CALCGPH" : 1571,
+      "TEMP" : 2912,
+      "RH" : 318,
+      "UWND" : 13,
+      "VWND" : -71
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 77300,
+      "CALCGPH" : 2373,
+      "TEMP" : 2854,
+      "RH" : 377,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 73800,
+      "CALCGPH" : 2759,
+      "TEMP" : 2844,
+      "RH" : 172,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 70000,
+      "CALCGPH" : 3196,
+      "TEMP" : 2814,
+      "RH" : 152,
+      "UWND" : 33,
+      "VWND" : -39
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 66200,
+      "CALCGPH" : 3658,
+      "TEMP" : 2784,
+      "RH" : 281,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 64200,
+      "CALCGPH" : 3907,
+      "TEMP" : 2768,
+      "RH" : 141,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 60600,
+      "CALCGPH" : 4373,
+      "TEMP" : 2758,
+      "RH" : 45,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 55100,
+      "CALCGPH" : 5132,
+      "TEMP" : 2693,
+      "RH" : 57,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 50000,
+      "CALCGPH" : 5890,
+      "TEMP" : 2643,
+      "RH" : 61,
+      "UWND" : 80,
+      "VWND" : -46
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 40000,
+      "CALCGPH" : 7579,
+      "TEMP" : 2531,
+      "RH" : 122,
+      "UWND" : 57,
+      "VWND" : -33
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 37400,
+      "CALCGPH" : 8074,
+      "TEMP" : 2499,
+      "RH" : 143,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 30000,
+      "CALCGPH" : 9640,
+      "TEMP" : 2359,
+      "RH" : 196,
+      "UWND" : 60,
+      "VWND" : 11
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 25000,
+      "CALCGPH" : 10871,
+      "TEMP" : 2257,
+      "RH" : 213,
+      "UWND" : 53,
+      "VWND" : -19
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 20000,
+      "CALCGPH" : 12319,
+      "TEMP" : 2153,
+      "RH" : 236,
+      "UWND" : 70,
+      "VWND" : -33
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 19000,
+      "CALCGPH" : 12642,
+      "TEMP" : 2133,
+      "RH" : 229,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 15000,
+      "CALCGPH" : 14106,
+      "TEMP" : 2101,
+      "RH" : 252,
+      "UWND" : 210,
+      "VWND" : -18
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 12400,
+      "CALCGPH" : 15266,
+      "TEMP" : 2053,
+      "RH" : 272,
+      "UWND" : 185,
+      "VWND" : 0
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 10400,
+      "CALCGPH" : 16319,
+      "TEMP" : 2039,
+      "RH" : 267,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 10000,
+      "CALCGPH" : 16553,
+      "TEMP" : 2039,
+      "RH" : 267,
+      "UWND" : 144,
+      "VWND" : 0
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 9870,
+      "CALCGPH" : 16638,
+      "TEMP" : 2035,
+      "RH" : 265,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 7519,
+      "CALCGPH" : 18259,
+      "TEMP" : 2039,
+      "RH" : 267,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 7000,
+      "CALCGPH" : 18689,
+      "TEMP" : 2073,
+      "RH" : 241,
+      "UWND" : 86,
+      "VWND" : 15
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 6600,
+      "CALCGPH" : 19049,
+      "TEMP" : 2097,
+      "RH" : 250,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 5000,
+      "CALCGPH" : 20767,
+      "TEMP" : 2135,
+      "RH" : 230,
+      "UWND" : 62,
+      "VWND" : -36
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 3000,
+      "CALCGPH" : 24002,
+      "TEMP" : 2191,
+      "RH" : 219,
+      "UWND" : 39,
+      "VWND" : 14
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 2560,
+      "CALCGPH" : 25021,
+      "TEMP" : 2211,
+      "RH" : 198,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 2000,
+      "CALCGPH" : 26612,
+      "TEMP" : 2197,
+      "RH" : 193,
+      "UWND" : 77,
+      "VWND" : -28
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 1890,
+      "CALCGPH" : 26983,
+      "TEMP" : 2193,
+      "RH" : 192,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Sun Aug 10 00:00:00 PDT 2008",
+      "PRESS" : 1060,
+      "CALCGPH" : 30745,
+      "TEMP" : 2255,
+      "RH" : 164,
+      "UWND" : "N",
+      "VWND" : "N"
+    }]
+
+    var w = 300;
+    var h = 600;
+    var barPadding = 1;
+
+    var svgContainer = d3.select("body")
+        .data(launch1)
+        .append("svg")
+        .attr("width", 600)
+        .attr("height", 600);
+
+    var flightPath = svgContainer
+    	.append("line")
+      .attr("x1", 300)
+      .attr("y1", 600)
+      .attr("x2", 300)
+      .attr("y2", 600)
+
+      .transition()
+      .duration(launch1.length*50)
+      .delay(50)
+      .ease("linear")
+
+    	.attr("x1", 350)
+      .attr("y1", 30)
+      .attr("x2", 300)
+      .attr("y2", 600)
+      .attr("stroke-width", 2)
+      .attr("stroke", "black")
+      .attr("fill", "none")
+      .style("stroke-dasharray", ("4, 3"));
+
+      var text = svgContainer.selectAll("text")
+        .data(launch1)
+        .enter()
+        .append("text");
+
+      var textLabels = text
+        .attr ("x", 20)
+        .attr ("y", 20)
+        .text (function(d) {return launch1[0].Time})
+        .attr ("font-family", "sans-serif")
+        .attr ("font-size", "15px")
+        .attr ("fill", "black");
+
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    var lastRec = launch1.length-1
+
+    svg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", w-5)
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 0)
+        .attr("fill", function(d) {
+          if (d.TEMP > 2731.5) {
+            return d3.rgb (123, 156, 184);
+           } else {
+            return d3.rgb (63, 96, 124);
+           }})
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+        .attr("x", function(d,i) {
+          return (w-(d.TEMP-2000)/4)-5;
+        })
+        .attr("width", function(d) {
+            return ((d.TEMP) - 2000) / 4;
+        })
+        .attr("fill", function(d) {
+        	if (d.TEMP > 2731.5) {
+        		return d3.rgb (123, 156, 184);
+        	 } else {
+        	 	return d3.rgb (63, 96, 124);
+        	 };
+        });
+
+        svg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", function(d) {
+          return (w-5);
+        })
+        .attr("fill", "orangered")
+
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("x", function(d) {
+        	return (w-(d.TEMP-2000)/4)-5;
+        })
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 2)
+        .attr("fill", "orangered"); 
+
+    	var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h)
+        .style("background-color", function(d) {return d3.rgb (255,250,238) } );
+
+      var lastRec = launch1.length-1
+
+    	svg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", 0)
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("fill", function(d) {
+          if (d.RH < 1000) {
+            return d3.rgb (0, 128, 128);
+           } else {
+            return d3.rgb (0, 178, 178);
+           };
+        })
+        .attr("width", 0)
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("width", function(d) {
+            return (d.RH)/3.4;
+        })
+        ;
+
+    	svg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", function(d) {
+          return 0;
+        })
+        
+        .attr("fill", "coral")
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 2)
+        .attr("x", function(d) {
+            return ((d.RH)/3.4);
+        });
+
+    </script>
+</body>
+
+</html>

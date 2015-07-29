@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <style type="text/css">
+
+body {
+    background-color: rgb(255,250,238);
+}
+
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var launch1 = [{
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 102200,
+      "CALCGPH" : 6,
+      "TEMP" : 2840,
+      "RH" : 980,
+      "UWND" : -20,
+      "VWND" : 3
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 102100,
+      "CALCGPH" : 14,
+      "TEMP" : 2852,
+      "RH" : 667,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 101800,
+      "CALCGPH" : 39,
+      "TEMP" : 2848,
+      "RH" : 579,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 101600,
+      "CALCGPH" : 55,
+      "TEMP" : 2844,
+      "RH" : 620,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 100300,
+      "CALCGPH" : 162,
+      "TEMP" : 2836,
+      "RH" : 880,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 100000,
+      "CALCGPH" : 187,
+      "TEMP" : 2834,
+      "RH" : 916,
+      "UWND" : 20,
+      "VWND" : 2
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 99400,
+      "CALCGPH" : 230,
+      "TEMP" : 2830,
+      "RH" : 960,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 96300,
+      "CALCGPH" : 491,
+      "TEMP" : 2812,
+      "RH" : 993,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 95700,
+      "CALCGPH" : 542,
+      "TEMP" : 2806,
+      "RH" : 927,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 94600,
+      "CALCGPH" : 637,
+      "TEMP" : 2808,
+      "RH" : 763,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 93300,
+      "CALCGPH" : 751,
+      "TEMP" : 2826,
+      "RH" : 730,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 92500,
+      "CALCGPH" : 822,
+      "TEMP" : 2830,
+      "RH" : 710,
+      "UWND" : 19,
+      "VWND" : -16
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 92000,
+      "CALCGPH" : 871,
+      "TEMP" : 2834,
+      "RH" : 613,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 90800,
+      "CALCGPH" : 980,
+      "TEMP" : 2828,
+      "RH" : 715,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 87500,
+      "CALCGPH" : 1285,
+      "TEMP" : 2806,
+      "RH" : 657,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 86000,
+      "CALCGPH" : 1427,
+      "TEMP" : 2804,
+      "RH" : 568,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 85000,
+      "CALCGPH" : 1523,
+      "TEMP" : 2800,
+      "RH" : 571,
+      "UWND" : 6,
+      "VWND" : -24
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 81400,
+      "CALCGPH" : 1878,
+      "TEMP" : 2778,
+      "RH" : 561,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 80200,
+      "CALCGPH" : 1999,
+      "TEMP" : 2774,
+      "RH" : 446,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 77700,
+      "CALCGPH" : 2256,
+      "TEMP" : 2774,
+      "RH" : 278,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 72600,
+      "CALCGPH" : 2804,
+      "TEMP" : 2742,
+      "RH" : 147,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 71500,
+      "CALCGPH" : 2926,
+      "TEMP" : 2734,
+      "RH" : 289,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 70800,
+      "CALCGPH" : 3005,
+      "TEMP" : 2732,
+      "RH" : 145,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 70200,
+      "CALCGPH" : 3073,
+      "TEMP" : 2727,
+      "RH" : 144,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 70000,
+      "CALCGPH" : 3096,
+      "TEMP" : 2727,
+      "RH" : 157,
+      "UWND" : 59,
+      "VWND" : -49
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 67600,
+      "CALCGPH" : 3376,
+      "TEMP" : 2719,
+      "RH" : 108,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 64200,
+      "CALCGPH" : 3785,
+      "TEMP" : 2695,
+      "RH" : 103,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 63500,
+      "CALCGPH" : 3871,
+      "TEMP" : 2687,
+      "RH" : 252,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 61300,
+      "CALCGPH" : 4148,
+      "TEMP" : 2677,
+      "RH" : 190,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 58900,
+      "CALCGPH" : 4459,
+      "TEMP" : 2655,
+      "RH" : 265,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 50000,
+      "CALCGPH" : 5709,
+      "TEMP" : 2561,
+      "RH" : 159,
+      "UWND" : 87,
+      "VWND" : -73
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 49200,
+      "CALCGPH" : 5831,
+      "TEMP" : 2551,
+      "RH" : 127,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 47900,
+      "CALCGPH" : 6031,
+      "TEMP" : 2545,
+      "RH" : 113,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 42700,
+      "CALCGPH" : 6874,
+      "TEMP" : 2471,
+      "RH" : 231,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 40400,
+      "CALCGPH" : 7272,
+      "TEMP" : 2441,
+      "RH" : 247,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 40000,
+      "CALCGPH" : 7343,
+      "TEMP" : 2435,
+      "RH" : 273,
+      "UWND" : 183,
+      "VWND" : -105
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 39600,
+      "CALCGPH" : 7412,
+      "TEMP" : 2433,
+      "RH" : 336,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 37300,
+      "CALCGPH" : 7835,
+      "TEMP" : 2397,
+      "RH" : 324,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 36500,
+      "CALCGPH" : 7987,
+      "TEMP" : 2389,
+      "RH" : 398,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 32400,
+      "CALCGPH" : 8806,
+      "TEMP" : 2313,
+      "RH" : 521,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 30000,
+      "CALCGPH" : 9322,
+      "TEMP" : 2271,
+      "RH" : 507,
+      "UWND" : 242,
+      "VWND" : -113
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 27800,
+      "CALCGPH" : 9831,
+      "TEMP" : 2223,
+      "RH" : 490,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 25000,
+      "CALCGPH" : 10514,
+      "TEMP" : 2173,
+      "RH" : 472,
+      "UWND" : 335,
+      "VWND" : -156
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 22800,
+      "CALCGPH" : 11089,
+      "TEMP" : 2125,
+      "RH" : 454,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 21500,
+      "CALCGPH" : 11452,
+      "TEMP" : 2101,
+      "RH" : 445,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 21100,
+      "CALCGPH" : 11567,
+      "TEMP" : 2097,
+      "RH" : 444,
+      "UWND" : 325,
+      "VWND" : -187
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 20700,
+      "CALCGPH" : 11685,
+      "TEMP" : 2109,
+      "RH" : 448,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 20300,
+      "CALCGPH" : 11805,
+      "TEMP" : 2111,
+      "RH" : 449,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 20000,
+      "CALCGPH" : 11897,
+      "TEMP" : 2107,
+      "RH" : 447,
+      "UWND" : 212,
+      "VWND" : -178
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 19100,
+      "CALCGPH" : 12183,
+      "TEMP" : 2089,
+      "RH" : 440,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 18700,
+      "CALCGPH" : 12313,
+      "TEMP" : 2115,
+      "RH" : 450,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 17900,
+      "CALCGPH" : 12582,
+      "TEMP" : 2097,
+      "RH" : 444,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 17800,
+      "CALCGPH" : 12616,
+      "TEMP" : 2099,
+      "RH" : 444,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 17700,
+      "CALCGPH" : 12651,
+      "TEMP" : 2119,
+      "RH" : 452,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 17600,
+      "CALCGPH" : 12686,
+      "TEMP" : 2123,
+      "RH" : 454,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 16300,
+      "CALCGPH" : 13164,
+      "TEMP" : 2133,
+      "RH" : 457,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 15500,
+      "CALCGPH" : 13477,
+      "TEMP" : 2117,
+      "RH" : 451,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 15200,
+      "CALCGPH" : 13599,
+      "TEMP" : 2137,
+      "RH" : 459,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 15000,
+      "CALCGPH" : 13682,
+      "TEMP" : 2133,
+      "RH" : 457,
+      "UWND" : 163,
+      "VWND" : -76
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 14700,
+      "CALCGPH" : 13806,
+      "TEMP" : 2129,
+      "RH" : 456,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 14100,
+      "CALCGPH" : 14066,
+      "TEMP" : 2145,
+      "RH" : 462,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 13500,
+      "CALCGPH" : 14339,
+      "TEMP" : 2141,
+      "RH" : 460,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 13400,
+      "CALCGPH" : 14386,
+      "TEMP" : 2153,
+      "RH" : 407,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 13000,
+      "CALCGPH" : 14576,
+      "TEMP" : 2137,
+      "RH" : 401,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 12000,
+      "CALCGPH" : 15076,
+      "TEMP" : 2135,
+      "RH" : 400,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 11400,
+      "CALCGPH" : 15399,
+      "TEMP" : 2165,
+      "RH" : 412,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 10400,
+      "CALCGPH" : 15976,
+      "TEMP" : 2129,
+      "RH" : 398,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 10200,
+      "CALCGPH" : 16097,
+      "TEMP" : 2133,
+      "RH" : 399,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 10000,
+      "CALCGPH" : 16221,
+      "TEMP" : 2151,
+      "RH" : 406,
+      "UWND" : 202,
+      "VWND" : 36
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 9520,
+      "CALCGPH" : 16530,
+      "TEMP" : 2159,
+      "RH" : 410,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 8450,
+      "CALCGPH" : 17275,
+      "TEMP" : 2115,
+      "RH" : 392,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 8250,
+      "CALCGPH" : 17424,
+      "TEMP" : 2133,
+      "RH" : 399,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 7819,
+      "CALCGPH" : 17759,
+      "TEMP" : 2135,
+      "RH" : 400,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 7050,
+      "CALCGPH" : 18403,
+      "TEMP" : 2121,
+      "RH" : 395,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 7000,
+      "CALCGPH" : 18447,
+      "TEMP" : 2125,
+      "RH" : 396,
+      "UWND" : 143,
+      "VWND" : -13
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 6469,
+      "CALCGPH" : 18941,
+      "TEMP" : 2131,
+      "RH" : 399,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 5570,
+      "CALCGPH" : 19869,
+      "TEMP" : 2109,
+      "RH" : 390,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 5310,
+      "CALCGPH" : 20165,
+      "TEMP" : 2119,
+      "RH" : 394,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 5060,
+      "CALCGPH" : 20463,
+      "TEMP" : 2107,
+      "RH" : 389,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 5000,
+      "CALCGPH" : 20537,
+      "TEMP" : 2107,
+      "RH" : 389,
+      "UWND" : 72,
+      "VWND" : 6
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 4170,
+      "CALCGPH" : 21659,
+      "TEMP" : 2107,
+      "RH" : 389,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 3530,
+      "CALCGPH" : 22698,
+      "TEMP" : 2157,
+      "RH" : 358,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 3110,
+      "CALCGPH" : 23494,
+      "TEMP" : 2141,
+      "RH" : 352,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 3000,
+      "CALCGPH" : 23720,
+      "TEMP" : 2147,
+      "RH" : 354,
+      "UWND" : 19,
+      "VWND" : -7
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 2460,
+      "CALCGPH" : 24972,
+      "TEMP" : 2167,
+      "RH" : 362,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 2300,
+      "CALCGPH" : 25396,
+      "TEMP" : 2149,
+      "RH" : 355,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 2140,
+      "CALCGPH" : 25852,
+      "TEMP" : 2171,
+      "RH" : 363,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 2000,
+      "CALCGPH" : 26281,
+      "TEMP" : 2165,
+      "RH" : 361,
+      "UWND" : -54,
+      "VWND" : -54
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1950,
+      "CALCGPH" : 26450,
+      "TEMP" : 2167,
+      "RH" : 362,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1700,
+      "CALCGPH" : 27326,
+      "TEMP" : 2201,
+      "RH" : 329,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1660,
+      "CALCGPH" : 27479,
+      "TEMP" : 2193,
+      "RH" : 326,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1370,
+      "CALCGPH" : 28725,
+      "TEMP" : 2243,
+      "RH" : 305,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1190,
+      "CALCGPH" : 29646,
+      "TEMP" : 2229,
+      "RH" : 300,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Mon Feb 04 12:00:00 PST 2013",
+      "PRESS" : 1070,
+      "CALCGPH" : 30340,
+      "TEMP" : 2237,
+      "RH" : 267,
+      "UWND" : "N",
+      "VWND" : "N"
+    }]
+
+    var w = 300;
+    var h = 600;
+    var barPadding = 1;
+
+    var svgContainer = d3.select("body")
+        .data(launch1)
+        .append("svg")
+        .attr("width", 600)
+        .attr("height", 600);
+
+    var flightPath = svgContainer
+    	.append("line")
+      .attr("x1", 300)
+      .attr("y1", 600)
+      .attr("x2", 300)
+      .attr("y2", 600)
+
+      .transition()
+      .duration(launch1.length*50)
+      .delay(50)
+      .ease("linear")
+
+    	.attr("x1", 350)
+      .attr("y1", 30)
+      .attr("x2", 300)
+      .attr("y2", 600)
+      .attr("stroke-width", 2)
+      .attr("stroke", "black")
+      .attr("fill", "none")
+      .style("stroke-dasharray", ("4, 3"));
+
+      var text = svgContainer.selectAll("text")
+        .data(launch1)
+        .enter()
+        .append("text");
+
+      var textLabels = text
+        .attr ("x", 20)
+        .attr ("y", 20)
+        .text (function(d) {return launch1[0].Time})
+        .attr ("font-family", "sans-serif")
+        .attr ("font-size", "15px")
+        .attr ("fill", "black");
+
+
+    var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+    var lastRec = launch1.length-1
+
+    svg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", w-5)
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 0)
+        .attr("fill", function(d) {
+          if (d.TEMP > 2731.5) {
+            return d3.rgb (123, 156, 184);
+           } else {
+            return d3.rgb (63, 96, 124);
+           }})
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+        .attr("x", function(d,i) {
+          return (w-(d.TEMP-2000)/4)-5;
+        })
+        .attr("width", function(d) {
+            return ((d.TEMP) - 2000) / 4;
+        })
+        .attr("fill", function(d) {
+        	if (d.TEMP > 2731.5) {
+        		return d3.rgb (123, 156, 184);
+        	 } else {
+        	 	return d3.rgb (63, 96, 124);
+        	 };
+        });
+
+        svg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", function(d) {
+          return (w-5);
+        })
+        .attr("fill", "orangered")
+
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("x", function(d) {
+        	return (w-(d.TEMP-2000)/4)-5;
+        })
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 2)
+        .attr("fill", "orangered"); 
+
+    	var svg = d3.select("body")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h)
+        .style("background-color", function(d) {return d3.rgb (255,250,238) } );
+
+      var lastRec = launch1.length-1
+
+    	svg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", 0)
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("fill", function(d) {
+          if (d.RH < 1000) {
+            return d3.rgb (0, 128, 128);
+           } else {
+            return d3.rgb (0, 178, 178);
+           };
+        })
+        .attr("width", 0)
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("width", function(d) {
+            return (d.RH)/3.4;
+        })
+        ;
+
+    	svg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (h-(i * (h / launch1.length))/(35000/(launch1[lastRec].CALCGPH)));
+        })
+        .attr("x", function(d) {
+          return 0;
+        })
+        
+        .attr("fill", "coral")
+        .transition()
+        .delay(function(d,i) {return i*50})
+        .duration(1500)
+        .ease("linear")
+
+        .attr("height", function(d, i) {
+            return ((h/(35000/(launch1[lastRec].CALCGPH)))/ launch1.length) - .5;
+        })
+        .attr("width", 2)
+        .attr("x", function(d) {
+            return ((d.RH)/3.4);
+        });
+
+    </script>
+</body>
+
+</html>
