@@ -792,7 +792,7 @@ var svgContainer = vis.append('svg')
     .data(launch1)
     .append("svg")
     .attr("width", visWidth/2)
-    .attr("height", visHeight/2);
+    .attr("height", visHeight);
 
 
 //Create Running Total
@@ -814,10 +814,10 @@ for (i=1; i<launch1.length; i++ ){
 
 var lineGen1 = d3.svg.line()
     .x(function(d) {    
-        return 300+(d.x)*(100/35000)
+        return (visWidth*.25)+(d.x)*(100/35000)
     })
     .y(function(d) {
-        return 600-(d.y)*(600/35000)
+        return visHeight-(d.y)*(600/35000)
         })
 
 // Add Clipping Mask
