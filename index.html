@@ -847,6 +847,7 @@ var flightPath= svgContainer.append('svg:path')
 //Add Text of Date
 
     var textContainer = svgContainer.selectAll("text")
+        .data(launch1)
         .enter()
         .append("text");
 
