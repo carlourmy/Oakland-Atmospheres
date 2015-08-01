@@ -930,7 +930,7 @@ var flightPath= svgContainer.append('svg:path')
 
 //Create Temp Caps
 
-    svg.selectAll("rect.cap")
+    tempSvg.selectAll("rect.cap")
         .data(launch1)
         .enter()
         .append("rect")
@@ -960,12 +960,14 @@ var flightPath= svgContainer.append('svg:path')
         .attr("fill", "orangered");
 
 //Create Humidity Container
+    var rhWidth = visWidth/4;
+    var rhHeight = visHeight;
 
-    var svg = vis.append('svg')
-    	.attr("x", 900)
+    var rhSvg = vis.append('svg')
+    	.attr("x", visWidth*.75)
         .append("svg")
-        .attr("width", w)
-        .attr("height", h)
+        .attr("width", rhWidth)
+        .attr("height", rhHeight)
         .style("background-color", function(d) {
             return d3.rgb(255, 250, 238)
         });
@@ -974,16 +976,16 @@ var flightPath= svgContainer.append('svg:path')
 
     var lastRec = launch1.length - 1
 
-    svg.selectAll("rect")
+    rhSvg.selectAll("rect")
         .data(launch1)
         .enter()
         .append("rect")
         .attr("y", function(d, i) {
-            return (h - (i * (h / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
         .attr("x", 5)
         .attr("height", function(d, i) {
-            return ((h / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
         })
         .attr("fill", function(d) {
             if (d.RH < 1000) {
@@ -1000,7 +1002,7 @@ var flightPath= svgContainer.append('svg:path')
         .duration(1500)
         .ease("linear")
 
-    .attr("width", function(d) {
+        .attr("width", function(d) {
         return (d.RH) / 3.4;
     });
 
