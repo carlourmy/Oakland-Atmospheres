@@ -875,7 +875,7 @@ var flightPath= svgContainer.append('svg:path')
 
 //Create Temp Container
     var tempWidth = visWidth/2;
-    var tempHeight = visHeight/2;
+    var tempHeight = visHeight;
 
     var svg = vis.append('svg')
     	.attr("x", visWidth/2)
@@ -885,7 +885,7 @@ var flightPath= svgContainer.append('svg:path')
 
 //Create Temp Bars
 
-    var lastRec = launch1.length - 1
+    var lastRec = launch1.length - 1;
 
     svg.selectAll("rect")
         .data(launch1)
