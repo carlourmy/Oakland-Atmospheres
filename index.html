@@ -887,7 +887,7 @@ var flightPath= svgContainer.append('svg:path')
 
     var lastRec = launch1.length - 1;
 
-    svg.selectAll("rect")
+    tempSvg.selectAll("rect")
         .data(launch1)
         .enter()
         .append("rect")
