@@ -883,8 +883,10 @@ var flightPath= svgContainer.append('svg:path')
         .attr("width", tempWidth)
         .attr("height", tempHeight);
 
-//Create Temp Bars
+//Create Temp Bars Scale
 
+
+//Create Temp Bars
     var lastRec = launch1.length - 1;
 
     tempSvg.selectAll("rect")
@@ -934,10 +936,10 @@ var flightPath= svgContainer.append('svg:path')
         .append("rect")
         .attr("class", "cap")
         .attr("y", function(d, i) {
-            return (h - (i * (h / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
         .attr("x", function(d) {
-            return (w - 5);
+            return (tempWidth - 5);
         })
         .attr("fill", "orangered")
 
@@ -949,10 +951,10 @@ var flightPath= svgContainer.append('svg:path')
         .ease("linear")
 
     .attr("x", function(d) {
-            return (w - (d.TEMP - 2000) / 4) - 5;
+            return (tempWidth - (d.TEMP - 2000) / 4) - 5;
         })
         .attr("height", function(d, i) {
-            return ((h / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
         })
         .attr("width", 2)
         .attr("fill", "orangered");
