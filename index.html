@@ -746,7 +746,7 @@ for (i=1; i<=22; i++) {
 //Add Vertical Scale Lines
 
     vis.append("svg:line")
-        .attr("x1", 0)
+        .attr("x1", 5)
         .attr("y1", visHeight-(3218*i)*(visHeight/35000))
         .attr("x2", (visWidth/2)-20)
         .attr("y2", visHeight-(3218*i)*(visHeight/35000))
@@ -757,7 +757,7 @@ for (i=1; i<=22; i++) {
     vis.append("svg:line")
         .attr("x1", (visWidth/2)+20)
         .attr("y1", visHeight-(3218*i)*(visHeight/35000))
-        .attr("x2", visWidth)
+        .attr("x2", visWidth-5)
         .attr("y2", visHeight-(3218*i)*(visHeight/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
