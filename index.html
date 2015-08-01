@@ -744,18 +744,12 @@ for (i=1; i<=22; i++) {
         .attr("fill", "gray");
 
 //Add Vertical Scale Lines
-    var test= vis.append("svg:rect")
-        .attr("x", .25*visWidth)
-        .attr("y", .25*visHeight)
-        .attr("width", .5*visWidth)
-        .attr("height", .5*visHeight)
-        .attr("fill", "red");
 
     vis.append("svg:line")
         .attr("x1", 0)
-        .attr("y1", 600-(3218*i)*(600/35000))
-        .attr("x2", 580)
-        .attr("y2", 600-(3218*i)*(600/35000))
+        .attr("y1", visWidth-(3218*i)*(visWidth/35000))
+        .attr("x2", visWidth-20)
+        .attr("y2", visWidth-(3218*i)*(visWidth/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
         .attr("stroke-dasharray", ("3,3"));
