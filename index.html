@@ -737,7 +737,7 @@ var vis= d3.select("body")
 for (i=1; i<=22; i++) {
     vis.append("text")
         .text( + (i*2) + " Miles")
-        .attr("x", 590)
+        .attr("x", (visWidth/2)-10)
         .attr("y", 603-(3218*i)*(600/35000))
         .attr("font-family", "sans-serif")
         .attr("font-size", "10px")
