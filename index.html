@@ -755,9 +755,9 @@ for (i=1; i<=22; i++) {
         .attr("stroke-dasharray", ("3,3"));
 
     vis.append("svg:line")
-        .attr("x1", 630)
+        .attr("x1", (visWidth/2)+20)
         .attr("y1", 600-(3218*i)*(600/35000))
-        .attr("x2", 1200)
+        .attr("x2", visWidth)
         .attr("y2", 600-(3218*i)*(600/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
