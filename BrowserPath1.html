@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>test2</title>
+    <title></title>
     <script type="text/javascript" src="d3.min.js"></script>
+    <script type="text/javascript" src-"https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <style type="text/css">
     body {
         background-color: rgb(255, 250, 238);
@@ -699,53 +700,160 @@
         "CALCGPH": 32587,
         "TEMP": 2401,
         "RH": 167,
-        "UWND": "N",
-        "VWND": "N"
+        "UWND": -172,
+        "VWND": 30,
     }]
 
     var w = 300;
     var h = 600;
     var barPadding = 1;
 
-    var svgContainer = d3.select("body")
-        .data(launch1)
-        .append("svg")
-        .attr("width", 600)
-        .attr("height", 600);
+//Create Master Container
 
-    var flightPath = svgContainer
-        .append("line")
-        .attr("x1", 300)
-        .attr("y1", 600)
-        .attr("x2", 300)
+
+window.addEventListener('resize', updateWindow);
+
+var vv = window;
+visWidth = vv.innerWidth;
+visHeight = vv.innerWidth*.5;
+
+
+function updateWindow(){
+    var vv = window;
+    visWidth = vv.innerWidth;
+    visHeight = vv.innerWidth*.5;
+};
+
+window.onresize = updateWindow;
+
+var vis= d3.select("body")
+	.append("svg")
+	.attr("width", visWidth)
+	.attr("height", visHeight)
+	.attr("y", 0);
+
+//Add Vertical Scale Text
+
+for (i=1; i<=22; i++) {
+    vis.append("text")
+        .text( + (i*2) + " Miles")
+        .attr("x", 590)
+        .attr("y", 603-(3218*i)*(600/35000))
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+
+//Add Vertical Scale Lines
+    var test= vis.append("svg:rect")
+        .attr("x", .25*visWidth)
+        .attr("y", .25*visHeight)
+        .attr("width", .5*visWidth)
+        .attr("height", .5*visHeight)
+        .attr("fill", "red");
+
+    vis.append("svg:line")
+        .attr("x1", 0)
+        .attr("y1", 600-(3218*i)*(600/35000))
+        .attr("x2", 580)
+        .attr("y2", 600-(3218*i)*(600/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+
+    vis.append("svg:line")
+        .attr("x1", 630)
+        .attr("y1", 600-(3218*i)*(600/35000))
+        .attr("x2", 1200)
+        .attr("y2", 600-(3218*i)*(600/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+};
+
+//Add Horizontal Mile Lines
+
+for (i=1; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", 300+(i*30))
+        .attr("y1",590)
+        .attr("x2", 300+(i*30))
         .attr("y2", 600)
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
 
-        .transition()
-        .duration(launch1.length * 50)
-        .delay(50)
-        .ease("linear")
-
-        .attr("x1", 350)
-        .attr("y1", 30)
-        .attr("x2", 300)
+for (i=1; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", 300-(i*30))
+        .attr("y1",590 )
+        .attr("x2", 300-(i*30))
         .attr("y2", 600)
-        .attr("stroke-width", 2)
-        .attr("stroke", "black")
-        .attr("fill", "none")
-        .style("stroke-dasharray", ("4, 3"));
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
 
-    // var flightPath = d3.select("svgContainer")
-    //     .x(function(d) {
-    //       return (w - (d.TEMP - 2000) / 4) - 5;
-    //     })
-    //     .y(function(d) {
-    //       return (d.CALCGPH/35000)*600
-    //     })
-    //     .append("line")
-    //     .attr("stroke-width", 2)
-    //     .attr("stroke", "black")
-    //     .attr("fill", "none")
-    //     .style("stroke-dasharray", ("4, 3"));
+//Create Container for Flight Path
+
+var visWidth = 1200
+var visHeight = 600
+
+var svgContainer = vis.append('svg')
+    .data(launch1)
+    .append("svg")
+    .attr("width", 1200)
+    .attr("height", 600);
+
+
+//Create Running Total
+
+var xPos = [{x:0,y:0}];
+var totalWind=0;
+var totalHeight=0;
+
+for (i=1; i<launch1.length; i++ ){
+    totalWind=Math.floor(totalWind+(launch1[i-1].UWND)*((launch1[i].CALCGPH-launch1[i-1].CALCGPH)/50));
+
+    totalHeight=launch1[i].CALCGPH;
+
+    xPos.push({"x":totalWind,"y":totalHeight});
+}
+    console.log(xPos);
+
+//Create Line Function
+
+var lineGen1 = d3.svg.line()
+    .x(function(d) {    
+        return 300+(d.x)*(100/35000)
+    })
+    .y(function(d) {
+        return 600-(d.y)*(600/35000)
+        })
+
+// Add Clipping Mask
+
+svgContainer.append('clipPath')
+    .attr ("id","mask")
+    .append("rect")
+    .attr ("x", 0)
+    .attr ("y", 600)
+    .attr ("width", 1200)
+    .attr ("height", 600)
+    .transition()
+    .duration(50*launch1.length)
+    .ease("linear")
+    .attr ("y", 600-(launch1[launch1.length-1].CALCGPH*(600/35000)));
+
+//Add Line
+
+var flightPath= svgContainer.append('svg:path')
+    .attr('stroke', 'black')
+    .attr('stroke-width', 3)
+    .style("stroke-dasharray", ("3, 3"))
+    .attr('fill', 'none')
+    .attr('d', lineGen1(xPos))
+    .attr("clip-path", "url(#mask)");
+
+//Add Text of Date
 
     var text = svgContainer.selectAll("text")
         .data(launch1)
@@ -755,18 +863,34 @@
     var textLabels = text
         .attr("x", 20)
         .attr("y", 20)
-         .attr("font-family", "sans-serif")
-        .attr("font-size", "15px")
-        .attr("fill", "black")
         .text(function(d) {
             return launch1[0].Time
-        });
+        })
+        .attr()
+        .attr("font-family", "sans-serif")
+        .attr("font-size", "15px")
+        .attr("fill", "black")
+        .transition()
+        .duration(100*(launch1[0].Time.length))
+        .ease("linear")
+        .tween("text", function() {
+            var newText = launch1[0].Time;
+            var textLength = launch1[0].Time.length;
+            return function (t) {
+                this.textContent= newText.slice(0, Math.round(t*textLength));
+            };
+            
+        })
 
+//Create Temp Container
 
-    var svg = d3.select("body")
+    var svg = vis.append('svg')
+    	.attr("x", 600)
         .append("svg")
         .attr("width", w)
         .attr("height", h);
+
+//Create Temp Bars
 
     var lastRec = launch1.length - 1
 
@@ -809,6 +933,8 @@
             };
         });
 
+//Create Temp Caps
+
     svg.selectAll("rect.cap")
         .data(launch1)
         .enter()
@@ -838,13 +964,18 @@
         .attr("width", 2)
         .attr("fill", "orangered");
 
-    var svg = d3.select("body")
+//Create Humidity Container
+
+    var svg = vis.append('svg')
+    	.attr("x", 900)
         .append("svg")
         .attr("width", w)
         .attr("height", h)
         .style("background-color", function(d) {
             return d3.rgb(255, 250, 238)
         });
+
+//Create Humidity Bars
 
     var lastRec = launch1.length - 1
 
@@ -855,7 +986,7 @@
         .attr("y", function(d, i) {
             return (h - (i * (h / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
-        .attr("x", 0)
+        .attr("x", 5)
         .attr("height", function(d, i) {
             return ((h / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
         })
@@ -878,6 +1009,8 @@
         return (d.RH) / 3.4;
     });
 
+//Create Humidity Caps
+
     svg.selectAll("rect.cap")
         .data(launch1)
         .enter()
@@ -887,7 +1020,7 @@
             return (h - (i * (h / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
         .attr("x", function(d) {
-            return 0;
+            return 5;
         })
 
     .attr("fill", "coral")
@@ -903,8 +1036,9 @@
         })
         .attr("width", 2)
         .attr("x", function(d) {
-            return ((d.RH) / 3.4);
+            return 5 + ((d.RH) / 3.4);
         });
+
     </script>
 </body>
 
