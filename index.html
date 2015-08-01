@@ -814,10 +814,10 @@ for (i=1; i<launch1.length; i++ ){
 
 var lineGen1 = d3.svg.line()
     .x(function(d) {    
-        return (visWidth*.25)+(d.x)*(100/35000)
+        return (visWidth*.25)+(d.x)*((visWidth/12)/35000)
     })
     .y(function(d) {
-        return visHeight-(d.y)*(600/35000)
+        return visHeight-(d.y)*((visWidth/2)/35000)
         })
 
 // Add Clipping Mask
