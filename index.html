@@ -715,7 +715,7 @@ window.addEventListener('resize', updateWindow);
 
 var vv = window;
 visWidth = vv.innerWidth;
-visHeight = vv.innerWidth*.5;
+visHeight = vv.innerHeight;
 
 
 function updateWindow(){
@@ -845,11 +845,6 @@ var flightPath= svgContainer.append('svg:path')
     .attr("clip-path", "url(#mask)");
 
 //Add Text of Date
-
-    // var text = svgContainer.selectAll("text")
-    //     .data(launch1)
-    //     .enter()
-    //     .append("text");
 
     vis.append("text")
         .attr("x", 20)
