@@ -1014,7 +1014,7 @@ var flightPath= svgContainer.append('svg:path')
         .append("rect")
         .attr("class", "cap")
         .attr("y", function(d, i) {
-            return (rhHeight - (i * ( / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
         .attr("x", function(d) {
             return 5;
