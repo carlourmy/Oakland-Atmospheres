@@ -874,12 +874,14 @@ var flightPath= svgContainer.append('svg:path')
         })
 
 //Create Temp Container
+    var tempWidth = visWidth/2;
+    var tempHeight = visHeight/2;
 
     var svg = vis.append('svg')
     	.attr("x", visWidth/2)
         .append("svg")
-        .attr("width", visWidth/2)
-        .attr("height", visHeight);
+        .attr("width", tempWidth)
+        .attr("height", tempHeight);
 
 //Create Temp Bars
 
@@ -890,11 +892,11 @@ var flightPath= svgContainer.append('svg:path')
         .enter()
         .append("rect")
         .attr("y", function(d, i) {
-            return (h - (i * (h / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
-        .attr("x", w - 5)
+        .attr("x", tempWidth - 5)
         .attr("height", function(d, i) {
-            return ((h / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
         })
         .attr("width", 0)
         .attr("fill", function(d) {
@@ -911,7 +913,7 @@ var flightPath= svgContainer.append('svg:path')
         .duration(1500)
         .ease("linear")
         .attr("x", function(d, i) {
-            return (w - (d.TEMP - 2000) / 4) - 5;
+            return (tempWidth - (d.TEMP - 2000) / 4) - 5;
         })
         .attr("width", function(d) {
             return ((d.TEMP) - 2000) / 4;
