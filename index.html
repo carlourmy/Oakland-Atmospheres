@@ -826,13 +826,13 @@ svgContainer.append('clipPath')
     .attr ("id","mask")
     .append("rect")
     .attr ("x", 0)
-    .attr ("y", 600)
-    .attr ("width", 1200)
-    .attr ("height", 600)
+    .attr ("y", visHeight)
+    .attr ("width", visWidth)
+    .attr ("height", visHeight)
     .transition()
     .duration(50*launch1.length)
     .ease("linear")
-    .attr ("y", 600-(launch1[launch1.length-1].CALCGPH*(600/35000)));
+    .attr ("y", visHeight-(launch1[launch1.length-1].CALCGPH*(visHeight/35000)));
 
 //Add Line
 
