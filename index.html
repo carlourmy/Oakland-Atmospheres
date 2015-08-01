@@ -846,19 +846,18 @@ var flightPath= svgContainer.append('svg:path')
 
 //Add Text of Date
 
-    var textContainer = svgContainer.selectAll("text")
+    var text = svgContainer.selectAll("text")
         .data(launch1)
         .enter()
         .append("text");
 
-    var textLabels = textContainer
+    var textLabels = text
         .attr("x", 20)
         .attr("y", 20)
         .text(function(d) {
             return launch1[0].Time
         })
         .attr()
-        .attr("font", "arial")
         .attr("font-family", "sans-serif")
         .attr("font-size", "15px")
         .attr("fill", "black")
@@ -1015,7 +1014,7 @@ var flightPath= svgContainer.append('svg:path')
         .append("rect")
         .attr("class", "cap")
         .attr("y", function(d, i) {
-            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (rhHeight - (i * ( / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
         })
         .attr("x", function(d) {
             return 5;
