@@ -741,8 +741,7 @@ var vis= d3.select("body")
 	.append("svg")
 	.attr("width", visWidth)
 	.attr("height", visHeight)
-	.attr("y", 0)
-    .attr("x", vv.innerWidth*.5);
+	.attr("y", 0);
 
 //Add Vertical Scale Text
 
@@ -782,10 +781,10 @@ for (i=1; i<=22; i++) {
 
 for (i=1; i<=10; i++) { 
     vis.append("svg:line")
-        .attr("x1", 300+(i*30))
-        .attr("y1",590)
-        .attr("x2", 300+(i*30))
-        .attr("y2", 600)
+        .attr("x1", (visWidth/4)+(i*30))
+        .attr("y1",visHeight-10)
+        .attr("x2", (visWidth/4)+(i*30))
+        .attr("y2", visHeight)
         .attr("stroke", "silver")
         .attr("stroke-width", 1);
     };
@@ -793,9 +792,9 @@ for (i=1; i<=10; i++) {
 for (i=1; i<=10; i++) { 
     vis.append("svg:line")
         .attr("x1", 300-(i*30))
-        .attr("y1",590 )
+        .attr("y1",visHeight-10)
         .attr("x2", 300-(i*30))
-        .attr("y2", 600)
+        .attr("y2", visHeight)
         .attr("stroke", "silver")
         .attr("stroke-width", 1);
     };
@@ -806,7 +805,7 @@ var svgContainer = vis.append('svg')
     .data(launch1)
     .append("svg")
     .attr("width", visWidth/2)
-    .attr("height", visHeight);
+    .attr("height", visHeight*.95);
 
 
 //Create Running Total
@@ -883,7 +882,7 @@ var flightPath= svgContainer.append('svg:path')
 
 //Create Temp Container
     var tempWidth = visWidth/4;
-    var tempHeight = visHeight;
+    var tempHeight = visHeight*.95;
 
     var tempSvg = vis.append('svg')
     	.attr("x", visWidth/2)
@@ -906,7 +905,7 @@ horTempScale=d3.scale.linear()
         .enter()
         .append("rect")
         .attr("y", function(d, i) {
-            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
         })
         .attr("x", tempWidth - 5)
         .attr("height", function(d, i) {
@@ -948,7 +947,7 @@ horTempScale=d3.scale.linear()
         .append("rect")
         .attr("class", "cap")
         .attr("y", function(d, i) {
-            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
         })
         .attr("x", function(d) {
             return (tempWidth - 5);
@@ -973,7 +972,7 @@ horTempScale=d3.scale.linear()
 
 //Create Humidity Container
     var rhWidth = visWidth/4;
-    var rhHeight = visHeight;
+    var rhHeight = visHeight*.95;
 
     var rhSvg = vis.append('svg')
     	.attr("x", visWidth*.75)
@@ -999,7 +998,7 @@ horTempScale=d3.scale.linear()
         .enter()
         .append("rect")
         .attr("y", function(d, i) {
-            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
         })
         .attr("x", 5)
         .attr("height", function(d, i) {
@@ -1032,7 +1031,7 @@ horTempScale=d3.scale.linear()
         .append("rect")
         .attr("class", "cap")
         .attr("y", function(d, i) {
-            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH)));
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
         })
         .attr("x", function(d) {
             return 5;
