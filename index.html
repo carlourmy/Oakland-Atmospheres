@@ -906,7 +906,7 @@ horTempScale=d3.scale.linear()
                 .range([0,tempWidth*.95]);
 
 //Create Temp Scale Marks
-for (i=0; i<=5; i++) {
+for (i=1; i<=5; i++) {
 vis.append("svg:line")
     .attr("x1", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
     .attr("y1", tempHeight+10)
@@ -916,7 +916,7 @@ vis.append("svg:line")
     .attr("stroke-width", 1);
 };
 
-for (i=0; i<=5; i++) { 
+for (i=1; i<=5; i++) { 
     vis.append("text")
         .text(-120+(i*40) + " F")
         .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6)-10)
@@ -1016,6 +1016,28 @@ for (i=0; i<=5; i++) {
     var horRhScale = d3.scale.linear()
         .domain([0,1000])
         .range([0,rhWidth*.95]);
+
+//Create Humidity Scale Marks
+
+for (i=1; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", (.75*visWidth)+5+(i*(.95*rhWidth)/5))
+    .attr("y1", tempHeight+10)
+    .attr("x2", (.75*visWidth)+5+(i*(.95*rhWidth)/5))
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+for (i=1; i<=5; i++) { 
+    vis.append("text")
+        .text((i*20) + "%")
+        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*tempWidth)/5))
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
 
 //Create Humidity Bars
 
