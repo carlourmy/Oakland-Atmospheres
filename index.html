@@ -735,6 +735,10 @@ var vis= d3.select("body")
 	.attr("height", visHeight)
 	.attr("y", 0);
 
+    d3.xml("balloon.svg", "image/svg+xml", function(xml) {
+  document.body.appendChild(xml.documentElement);
+});
+
 //Add Vertical Scale Text
 
 for (i=0; i<=22; i++) {
@@ -1095,7 +1099,7 @@ for (i=1; i<=5; i++) {
         .duration(1500)
         .ease("linear")
 
-    .attr("height", function(d, i) {
+        .attr("height", function(d, i) {
             return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
         })
         .attr("width", 2)
