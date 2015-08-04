@@ -704,18 +704,19 @@
         "VWND": 30,
     }]
 
-    var w = 300;
-    var h = 600;
-    var barPadding = 1;
+//Create Super Container
+
+
+
 
 //Create Master Container
 
 
-window.addEventListener('resize', updateWindow);
+// window.addEventListener('resize', updateWindow);
 
 var vv = window;
-visWidth = vv.innerWidth;
-visHeight = vv.innerHeight;
+visWidth = vv.innerWidth*.95;
+visHeight = vv.innerHeight*.95;
 
 
 function updateWindow(){
@@ -724,13 +725,14 @@ function updateWindow(){
     visHeight = vv.innerHeight;
 };
 
-window.onresize = updateWindow;
+// window.onresize = updateWindow;
 
 var vis= d3.select("body")
 	.append("svg")
 	.attr("width", visWidth)
 	.attr("height", visHeight)
-	.attr("y", 0);
+	.attr("y", 0)
+    .attr("x", vv.innerWidth*.5);
 
 //Add Vertical Scale Text
 
@@ -880,6 +882,10 @@ var flightPath= svgContainer.append('svg:path')
 //Create Temp Bars Scale
 
 
+horTempScale=d3.scale.linear()
+                .domain([1887.06,3220.39])
+                .range([0,tempWidth*.95]);
+
 //Create Temp Bars
     var lastRec = launch1.length - 1;
 
@@ -909,10 +915,10 @@ var flightPath= svgContainer.append('svg:path')
         .duration(1500)
         .ease("linear")
         .attr("x", function(d, i) {
-            return (tempWidth - (d.TEMP - 2000) / 4) - 5;
+            return tempWidth-(horTempScale(d.TEMP)) - 5;
         })
         .attr("width", function(d) {
-            return ((d.TEMP) - 2000) / 4;
+            return (horTempScale(d.TEMP));
         })
         .attr("fill", function(d) {
             if (d.TEMP > 2731.5) {
@@ -945,7 +951,7 @@ var flightPath= svgContainer.append('svg:path')
         .ease("linear")
 
     .attr("x", function(d) {
-            return (tempWidth - (d.TEMP - 2000) / 4) - 5;
+            return (tempWidth - horTempScale(d.TEMP) - 5);
         })
         .attr("height", function(d, i) {
             return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
@@ -965,6 +971,12 @@ var flightPath= svgContainer.append('svg:path')
         .style("background-color", function(d) {
             return d3.rgb(255, 250, 238)
         });
+
+//Create Humidity Scale
+
+    var horRhScale = d3.scale.linear()
+        .domain([0,1000])
+        .range([0,rhWidth*.95]);
 
 //Create Humidity Bars
 
@@ -997,7 +1009,7 @@ var flightPath= svgContainer.append('svg:path')
         .ease("linear")
 
     .attr("width", function(d) {
-        return (d.RH) / 3.4;
+        return horRhScale(d.RH);
     });
 
 //Create Humidity Caps
@@ -1027,7 +1039,7 @@ var flightPath= svgContainer.append('svg:path')
         })
         .attr("width", 2)
         .attr("x", function(d) {
-            return 5 + ((d.RH) / 3.4);
+            return horRhScale(d.RH)+5;
         });
 
     </script>
