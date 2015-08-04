@@ -749,6 +749,8 @@ var vis= d3.select("body")
 for (i=1; i<=22; i++) {
     vis.append("text")
         .text( + (i*2) + " Miles")
+        .attr("width", 100)
+        .attr("text-align", "center")
         .attr("x", (visWidth/2)-10)
         .attr("y", visHeight-(3218*i)*(visHeight/35000)+3)
         // .attr("font-family", "sans-serif")
@@ -767,7 +769,7 @@ for (i=1; i<=22; i++) {
         .attr("stroke-dasharray", ("3,3"));
 
     vis.append("svg:line")
-        .attr("x1", (visWidth/2)+20)
+        .attr("x1", (visWidth/2)+35)
         .attr("y1", visHeight-(3218*i)*(visHeight/35000))
         .attr("x2", visWidth-20)
         .attr("y2", visHeight-(3218*i)*(visHeight/35000))
