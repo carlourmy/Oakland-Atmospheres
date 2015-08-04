@@ -905,7 +905,7 @@ horTempScale=d3.scale.linear()
                 .domain([1887.06,3220.39])
                 .range([0,tempWidth*.95]);
 
-//Create Temp Scale
+//Create Temp Scale Marks
 for (i=0; i<=5; i++) {
 vis.append("svg:line")
     .attr("x1", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
