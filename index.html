@@ -714,28 +714,20 @@
         "VWND": 30,
     }]
 
-//Create Super Container
-
-
-
-
 //Create Master Container
 
-
-// window.addEventListener('resize', updateWindow);
 
 var vv = window;
 visWidth = vv.innerWidth*.95;
 visHeight = vv.innerHeight*.95;
 
 
-function updateWindow(){
-    var vv = window;
-    visWidth = vv.innerWidth;
-    visHeight = vv.innerHeight;
-};
+// function updateWindow(){
+//     var vv = window;
+//     visWidth = vv.innerWidth;
+//     visHeight = vv.innerHeight;
+// };
 
-// window.onresize = updateWindow;
 
 var vis= d3.select("body")
 	.append("svg")
@@ -751,8 +743,7 @@ for (i=1; i<=22; i++) {
         .attr("width", 100)
         .attr("text-align", "center")
         .attr("x", (visWidth/2)-10)
-        .attr("y", visHeight-(3218*i)*(visHeight/35000)+3)
-        // .attr("font-family", "sans-serif")
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
         .attr("font-size", "10px")
         .attr("fill", "gray");
 
@@ -760,18 +751,18 @@ for (i=1; i<=22; i++) {
 
     vis.append("svg:line")
         .attr("x1", 5)
-        .attr("y1", visHeight-(3218*i)*(visHeight/35000))
+        .attr("y1", .96*visHeight-(3218*i)*(visHeight/35000))
         .attr("x2", (visWidth/2)-20)
-        .attr("y2", visHeight-(3218*i)*(visHeight/35000))
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
         .attr("stroke-dasharray", ("3,3"));
 
     vis.append("svg:line")
         .attr("x1", (visWidth/2)+35)
-        .attr("y1", visHeight-(3218*i)*(visHeight/35000))
+        .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("x2", visWidth-20)
-        .attr("y2", visHeight-(3218*i)*(visHeight/35000))
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
         .attr("stroke-dasharray", ("3,3"));
@@ -827,10 +818,10 @@ for (i=1; i<launch1.length; i++ ){
 
 var lineGen1 = d3.svg.line()
     .x(function(d) {    
-        return (visWidth*.25)+(d.x)*((visWidth/12)/35000)
+        return (visWidth/4)+(d.x)*((visWidth/12)/35000)
     })
     .y(function(d) {
-        return visHeight-(d.y)*((visWidth/2)/35000)
+        return visHeight-(d.y)*((visHeight)/35000)
         })
 
 // Add Clipping Mask
@@ -865,8 +856,6 @@ var flightPath= svgContainer.append('svg:path')
         .text(function(d) {
             return launch1[0].Time
         })
-        .attr()
-        // .attr("font-family", "sans-serif")
         .attr("font-size", "15px")
         .attr("fill", "black")
         .transition()
