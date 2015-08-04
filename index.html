@@ -715,7 +715,7 @@ window.addEventListener('resize', updateWindow);
 
 var vv = window;
 visWidth = vv.innerWidth;
-visHeight = vv.innerWidth*.5;
+visHeight = vv.innerHeight;
 
 
 function updateWindow(){
@@ -757,7 +757,7 @@ for (i=1; i<=22; i++) {
     vis.append("svg:line")
         .attr("x1", (visWidth/2)+20)
         .attr("y1", visHeight-(3218*i)*(visHeight/35000))
-        .attr("x2", visWidth-5)
+        .attr("x2", visWidth-20)
         .attr("y2", visHeight-(3218*i)*(visHeight/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
