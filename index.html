@@ -875,7 +875,7 @@ var flightPath= svgContainer.append('svg:path')
         .text(function(d) {
             return launch1[0].Time
         })
-        .attr("font-size", "15px")
+        .attr("font-size", "20px")
         .attr("fill", "black")
         .transition()
         .duration(100*(launch1[0].Time.length))
@@ -908,23 +908,22 @@ horTempScale=d3.scale.linear()
 //Create Temp Scale
 for (i=0; i<=5; i++) {
 vis.append("svg:line")
-    .attr("x1", ((.5*visWidth)+tempWidth-5)-i)
+    .attr("x1", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
     .attr("y1", tempHeight+10)
-    .attr("x2", ((.5*visWidth)+tempWidth-5)-i)
+    .attr("x2", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
     .attr("y2", tempHeight+20)
     .attr("stroke", "silver")
     .attr("stroke-width", 1);
 };
 
-// for (i=1; i<=10; i++) { 
-//     tempSvg.append("svg:line")
-//         .attr("x1", (tempWidth)-(i*(3219*((visWidth/4)/35000))))
-//         .attr("y1",tempHeight)
-//         .attr("x2", (tempWidth)-(i*(3219*((visWidth/4)/35000))))
-//         .attr("y2", tempHeight)
-//         .attr("stroke", "silver")
-//         .attr("stroke-width", 1);
-//     };
+for (i=0; i<=5; i++) { 
+    vis.append("text")
+        .text(-120+(i*40) + " F")
+        .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6)-10)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
 
 //Create Temp Bars
     var lastRec = launch1.length - 1;
