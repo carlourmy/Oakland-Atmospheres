@@ -737,7 +737,7 @@ var vis= d3.select("body")
 
 //Add Vertical Scale Text
 
-for (i=1; i<=22; i++) {
+for (i=0; i<=22; i++) {
     vis.append("text")
         .text( + (i*2) + " Miles")
         .attr("width", 100)
@@ -770,24 +770,43 @@ for (i=1; i<=22; i++) {
 
 //Add Horizontal Mile Lines
 
-for (i=1; i<=10; i++) { 
+for (i=0; i<=10; i++) { 
     vis.append("svg:line")
-        .attr("x1", (visWidth/4)+(i*30))
-        .attr("y1",visHeight-10)
-        .attr("x2", (visWidth/4)+(i*30))
-        .attr("y2", visHeight)
+        .attr("x1", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y1",visHeight-20)
+        .attr("x2", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", visHeight-10)
         .attr("stroke", "silver")
         .attr("stroke-width", 1);
     };
 
 for (i=1; i<=10; i++) { 
     vis.append("svg:line")
-        .attr("x1", 300-(i*30))
-        .attr("y1",visHeight-10)
-        .attr("x2", 300-(i*30))
-        .attr("y2", visHeight)
+        .attr("x1", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y1",visHeight-20)
+        .attr("x2", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", visHeight-10)
         .attr("stroke", "silver")
         .attr("stroke-width", 1);
+    };
+//Add Horizontal Mile Text
+
+for (i=0; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)+(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+for (i=2; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)-(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
     };
 
 //Create Container for Flight Path
@@ -885,6 +904,27 @@ var flightPath= svgContainer.append('svg:path')
 horTempScale=d3.scale.linear()
                 .domain([1887.06,3220.39])
                 .range([0,tempWidth*.95]);
+
+//Create Temp Scale
+for (i=0; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", ((.5*visWidth)+tempWidth-5)-i)
+    .attr("y1", tempHeight+10)
+    .attr("x2", ((.5*visWidth)+tempWidth-5)-i)
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+// for (i=1; i<=10; i++) { 
+//     tempSvg.append("svg:line")
+//         .attr("x1", (tempWidth)-(i*(3219*((visWidth/4)/35000))))
+//         .attr("y1",tempHeight)
+//         .attr("x2", (tempWidth)-(i*(3219*((visWidth/4)/35000))))
+//         .attr("y2", tempHeight)
+//         .attr("stroke", "silver")
+//         .attr("stroke-width", 1);
+//     };
 
 //Create Temp Bars
     var lastRec = launch1.length - 1;
