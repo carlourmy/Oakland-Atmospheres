@@ -736,7 +736,7 @@ var vis= d3.select("body")
 	.attr("y", 0);
 
     d3.xml("balloon.svg", "image/svg+xml", function(xml) {
-  document.body.appendChild(xml.documentElement);
+  vis.appendChild(xml.documentElement);
 });
 
 //Add Vertical Scale Text
