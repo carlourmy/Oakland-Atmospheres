@@ -909,7 +909,7 @@ horTempScale=d3.scale.linear()
         })
         .attr("x", tempWidth - 5)
         .attr("height", function(d, i) {
-            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length+1)) - .5;
         })
         .attr("width", 0)
         .attr("fill", function(d) {
@@ -965,7 +965,7 @@ horTempScale=d3.scale.linear()
             return (tempWidth - horTempScale(d.TEMP) - 5);
         })
         .attr("height", function(d, i) {
-            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
         })
         .attr("width", 2)
         .attr("fill", "orangered");
@@ -1002,7 +1002,7 @@ horTempScale=d3.scale.linear()
         })
         .attr("x", 5)
         .attr("height", function(d, i) {
-            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
         })
         .attr("fill", function(d) {
             if (d.RH < 1000) {
@@ -1046,7 +1046,7 @@ horTempScale=d3.scale.linear()
         .ease("linear")
 
     .attr("height", function(d, i) {
-            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / launch1.length) - .5;
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
         })
         .attr("width", 2)
         .attr("x", function(d) {
