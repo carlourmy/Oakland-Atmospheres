@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <script type="text/javascript" src-"https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
+    <style type="text/css">
+
+     @font-face { font-family: bell; src: url('BellGothicStd-Bold.otf'); } 
+
+    body {
+        background-color: rgb(255, 250, 238);
+        font-family: bell, sans-serif;
+    }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var launch1 = [{
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 101700,
+      "CALCGPH" : 6,
+      "TEMP" : 2856,
+      "RH" : 987,
+      "UWND" : 8,
+      "VWND" : 6
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 101400,
+      "CALCGPH" : 31,
+      "TEMP" : 2852,
+      "RH" : 622,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 100100,
+      "CALCGPH" : 138,
+      "TEMP" : 2842,
+      "RH" : 881,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 100000,
+      "CALCGPH" : 146,
+      "TEMP" : 2840,
+      "RH" : 892,
+      "UWND" : 36,
+      "VWND" : 21
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 98500,
+      "CALCGPH" : 268,
+      "TEMP" : 2830,
+      "RH" : 973,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 92500,
+      "CALCGPH" : 785,
+      "TEMP" : 2798,
+      "RH" : 940,
+      "UWND" : 35,
+      "VWND" : 96
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 90500,
+      "CALCGPH" : 969,
+      "TEMP" : 2788,
+      "RH" : 966,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 88800,
+      "CALCGPH" : 1124,
+      "TEMP" : 2788,
+      "RH" : 986,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 88000,
+      "CALCGPH" : 1198,
+      "TEMP" : 2804,
+      "RH" : 1000,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 85000,
+      "CALCGPH" : 1482,
+      "TEMP" : 2794,
+      "RH" : 1000,
+      "UWND" : 37,
+      "VWND" : 101
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 84400,
+      "CALCGPH" : 1542,
+      "TEMP" : 2792,
+      "RH" : 1000,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 83200,
+      "CALCGPH" : 1659,
+      "TEMP" : 2810,
+      "RH" : 986,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 81400,
+      "CALCGPH" : 1839,
+      "TEMP" : 2804,
+      "RH" : 993,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 70000,
+      "CALCGPH" : 3062,
+      "TEMP" : 2738,
+      "RH" : 1000,
+      "UWND" : 78,
+      "VWND" : 168
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 52300,
+      "CALCGPH" : 5354,
+      "TEMP" : 2619,
+      "RH" : 953,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 50000,
+      "CALCGPH" : 5697,
+      "TEMP" : 2593,
+      "RH" : 906,
+      "UWND" : 60,
+      "VWND" : 223
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 40800,
+      "CALCGPH" : 7211,
+      "TEMP" : 2487,
+      "RH" : 768,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 40000,
+      "CALCGPH" : 7355,
+      "TEMP" : 2477,
+      "RH" : 774,
+      "UWND" : 70,
+      "VWND" : 263
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 30000,
+      "CALCGPH" : 9369,
+      "TEMP" : 2299,
+      "RH" : 578,
+      "UWND" : 83,
+      "VWND" : 308
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 25000,
+      "CALCGPH" : 10566,
+      "TEMP" : 2187,
+      "RH" : 477,
+      "UWND" : 60,
+      "VWND" : 339
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 21700,
+      "CALCGPH" : 11460,
+      "TEMP" : 2111,
+      "RH" : 449,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 20000,
+      "CALCGPH" : 11961,
+      "TEMP" : 2091,
+      "RH" : 441,
+      "UWND" : 162,
+      "VWND" : 281
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 19700,
+      "CALCGPH" : 12052,
+      "TEMP" : 2091,
+      "RH" : 441,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 18400,
+      "CALCGPH" : 12467,
+      "TEMP" : 2065,
+      "RH" : 431,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 17800,
+      "CALCGPH" : 12669,
+      "TEMP" : 2103,
+      "RH" : 446,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 17400,
+      "CALCGPH" : 12809,
+      "TEMP" : 2109,
+      "RH" : 448,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 16500,
+      "CALCGPH" : 13135,
+      "TEMP" : 2093,
+      "RH" : 442,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 15900,
+      "CALCGPH" : 13363,
+      "TEMP" : 2117,
+      "RH" : 451,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 15300,
+      "CALCGPH" : 13601,
+      "TEMP" : 2115,
+      "RH" : 450,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 15000,
+      "CALCGPH" : 13724,
+      "TEMP" : 2127,
+      "RH" : 455,
+      "UWND" : 205,
+      "VWND" : 172
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 14900,
+      "CALCGPH" : 13772,
+      "TEMP" : 2131,
+      "RH" : 457,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 14400,
+      "CALCGPH" : 13985,
+      "TEMP" : 2135,
+      "RH" : 400,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 14000,
+      "CALCGPH" : 14162,
+      "TEMP" : 2155,
+      "RH" : 408,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 13200,
+      "CALCGPH" : 14531,
+      "TEMP" : 2129,
+      "RH" : 398,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 12300,
+      "CALCGPH" : 14970,
+      "TEMP" : 2119,
+      "RH" : 394,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 12100,
+      "CALCGPH" : 15072,
+      "TEMP" : 2131,
+      "RH" : 399,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 11900,
+      "CALCGPH" : 15176,
+      "TEMP" : 2135,
+      "RH" : 400,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 11700,
+      "CALCGPH" : 15282,
+      "TEMP" : 2133,
+      "RH" : 399,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 11300,
+      "CALCGPH" : 15498,
+      "TEMP" : 2119,
+      "RH" : 394,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 11100,
+      "CALCGPH" : 15609,
+      "TEMP" : 2127,
+      "RH" : 346,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 10900,
+      "CALCGPH" : 15722,
+      "TEMP" : 2123,
+      "RH" : 344,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 10000,
+      "CALCGPH" : 16260,
+      "TEMP" : 2145,
+      "RH" : 353,
+      "UWND" : 174,
+      "VWND" : 15
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 8590,
+      "CALCGPH" : 17208,
+      "TEMP" : 2119,
+      "RH" : 343,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 7560,
+      "CALCGPH" : 18001,
+      "TEMP" : 2127,
+      "RH" : 346,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 7280,
+      "CALCGPH" : 18235,
+      "TEMP" : 2115,
+      "RH" : 341,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 7000,
+      "CALCGPH" : 18478,
+      "TEMP" : 2125,
+      "RH" : 300,
+      "UWND" : 235,
+      "VWND" : 21
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 6800,
+      "CALCGPH" : 18661,
+      "TEMP" : 2135,
+      "RH" : 304,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 6330,
+      "CALCGPH" : 19106,
+      "TEMP" : 2113,
+      "RH" : 296,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 5680,
+      "CALCGPH" : 19779,
+      "TEMP" : 2137,
+      "RH" : 305,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 5300,
+      "CALCGPH" : 20209,
+      "TEMP" : 2113,
+      "RH" : 296,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 5000,
+      "CALCGPH" : 20569,
+      "TEMP" : 2109,
+      "RH" : 294,
+      "UWND" : 101,
+      "VWND" : -37
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 4380,
+      "CALCGPH" : 21384,
+      "TEMP" : 2093,
+      "RH" : 288,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 3900,
+      "CALCGPH" : 22100,
+      "TEMP" : 2127,
+      "RH" : 301,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 3559,
+      "CALCGPH" : 22668,
+      "TEMP" : 2121,
+      "RH" : 299,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 3280,
+      "CALCGPH" : 23178,
+      "TEMP" : 2151,
+      "RH" : 310,
+      "UWND" : "N",
+      "VWND" : "N"
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 3000,
+      "CALCGPH" : 23738,
+      "TEMP" : 2143,
+      "RH" : 307,
+      "UWND" : -46,
+      "VWND" : -55
+    },
+    {
+      "Time" : "Thu Apr 04 12:00:00 PDT 2013",
+      "PRESS" : 2930,
+      "CALCGPH" : 23888,
+      "TEMP" : 2137,
+      "RH" : 305,
+      "UWND" : "N",
+      "VWND" : "N"
+    }]
+
+//Beginning Variables
+var vv = window;
+visWidth = vv.innerWidth*.95;
+visHeight = vv.innerHeight*.85;
+
+//Create Top Bar
+
+var bar = d3.select("body")
+    .append("svg")
+    .attr("width", vv.innerWidth)
+    .attr("height", 30)
+    .append("rect")
+    .attr("width", vv.innerWidth)
+    .attr("height", 50)
+    .attr("x", 0)
+    .attr("y", -20)
+    .attr("fill", "gainsboro");
+
+//Create Master Container
+
+
+// function updateWindow(){
+//     var vv = window;
+//     visWidth = vv.innerWidth;
+//     visHeight = vv.innerHeight;
+// };
+
+
+var vis= d3.select("body")
+	.append("svg")
+	.attr("width", visWidth)
+	.attr("height", visHeight)
+	.attr("y", 0);
+
+//Add Vertical Scale Text
+
+
+for (i=0; i<=22; i++) {
+    vis.append("text")
+        .text( + (i*2) + " Miles")
+        .attr("width", 100)
+        .attr("text-align", "center")
+        .attr("x", (visWidth/2)-10)
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+
+atms = [1, .63, .40, .25, .16, .10, .06, .04, .03, .02, .01]
+
+    vis.append("text")
+        .text( + (atms[i]) + " atm")
+        .attr("width", 100)
+        .attr("text-align", "center")
+        .attr("x", (visWidth)-40)
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+
+//Add Vertical Scale Lines
+
+    vis.append("svg:line")
+        .attr("x1", 5)
+        .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("x2", (visWidth/2)-20)
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+
+    vis.append("svg:line")
+        .attr("x1", (visWidth/2)+35)
+        .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("x2", visWidth-50)
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+};
+
+
+
+//Create Container for Flight Path
+
+var svgContainer = vis.append('svg')
+    .data(launch1)
+    .append("svg")
+    .attr("width", visWidth/2)
+    .attr("height", visHeight*.95);
+
+//Add East West
+
+svgContainer.append("text")
+    .text ("West")
+    .attr("x", visWidth/4-80)
+    .attr("y", (visHeight*.95)-10)
+    .attr("fill", "gray")
+    .attr("font-size", "15px")
+
+svgContainer.append("text")
+    .text ("East")
+    .attr("x", (visWidth/4)+50)
+    .attr("y", (visHeight*.95)-10)
+    .attr("fill", "gray")
+    .attr("font-size", "15px")
+
+//Add Horizontal Mile Lines
+
+for (i=0; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y1", (.95*visHeight)+20)
+        .attr("x2", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", (.95*visHeight)+10)
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
+
+for (i=1; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y1", (.95*visHeight)+20)
+        .attr("x2", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", (.95*visHeight)+10)
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
+//Add Horizontal Mile Text
+
+for (i=0; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)+(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+for (i=2; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)-(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+    };
+
+//Create Running Total
+
+var xPos = [{x:0,y:0}];
+var totalWind=0;
+var totalHeight=0;
+
+for (i=1; i<launch1.length; i++ ){
+    totalWind=Math.floor(totalWind+(launch1[i-1].UWND)*((launch1[i].CALCGPH-launch1[i-1].CALCGPH)/50));
+
+    totalHeight=launch1[i].CALCGPH;
+
+    xPos.push({"x":totalWind,"y":totalHeight});
+}
+
+
+//Create Line Function
+
+var lineGen1 = d3.svg.line()
+    .x(function(d) {    
+        return (visWidth/4)+(d.x)*((visWidth/12)/35000)
+    })
+    .y(function(d) {
+        return visHeight-(d.y)*((visHeight)/35000)
+        })
+
+// Add Clipping Mask
+
+svgContainer.append('clipPath')
+    .attr ("id","mask")
+    .append("rect")
+    .attr ("x", 0)
+    .attr ("y", visHeight)
+    .attr ("width", visWidth)
+    .attr ("height", visHeight)
+    .transition()
+    .duration(50*launch1.length)
+    .ease("linear")
+    .attr ("y", visHeight-(launch1[launch1.length-1].CALCGPH*(visHeight/35000)));
+
+//Add Line
+
+var flightPath= svgContainer.append('svg:path')
+    .attr('stroke', 'black')
+    .attr('stroke-width', 3)
+    .style("stroke-dasharray", ("3, 3"))
+    .attr('fill', 'none')
+    .attr('d', lineGen1(xPos))
+    .attr("clip-path", "url(#mask)");
+
+//Add Text of Date
+
+    vis.append("text")
+        .attr("x", 20)
+        .attr("y", 20)
+        .text(function(d) {
+            return launch1[0].Time
+        })
+        .attr("font-size", "17px")
+        .attr("fill", "black")
+        .transition()
+        .duration(100*(launch1[0].Time.length))
+        .ease("linear")
+        .tween("text", function() {
+            var newText = launch1[0].Time;
+            var textLength = launch1[0].Time.length;
+            return function (t) {
+                this.textContent= newText.slice(0, Math.round(t*textLength));
+            };   
+        })
+
+//Create Temp Container
+    var tempWidth = visWidth/4;
+    var tempHeight = visHeight*.95;
+
+    var tempSvg = vis.append('svg')
+    	.attr("x", visWidth/2)
+        .append("svg")
+        .attr("width", tempWidth)
+        .attr("height", tempHeight);
+
+//Create Temp Bars Scale
+
+
+horTempScale=d3.scale.linear()
+                .domain([1887.06,3220.39])
+                .range([0,tempWidth*.95]);
+
+//Create Temp Scale Marks
+for (i=1; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
+    .attr("y1", tempHeight+10)
+    .attr("x2", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+
+for (i=1; i<=5; i++) { 
+    vis.append("text")
+        .text(-120+(i*40) + "F")
+        .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6)-10)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+//Create Temp Bars
+    var lastRec = launch1.length - 1;
+
+    tempSvg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
+        })
+        .attr("x", tempWidth - 5)
+        .attr("height", function(d, i) {
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length+1)) - .5;
+        })
+        .attr("width", 0)
+        .attr("fill", function(d) {
+            if (d.TEMP > 2731.5) {
+                return d3.rgb(123, 156, 184);
+            } else {
+                return d3.rgb(63, 96, 124);
+            }
+        })
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+        .attr("x", function(d, i) {
+            return tempWidth-(horTempScale(d.TEMP)) - 5;
+        })
+        .attr("width", function(d) {
+            return (horTempScale(d.TEMP));
+        })
+        .attr("fill", function(d) {
+            if (d.TEMP > 2731.5) {
+                return d3.rgb(123, 156, 184);
+            } else {
+                return d3.rgb(63, 96, 124);
+            };
+        });
+
+//Create Temp Caps
+
+    tempSvg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
+        })
+        .attr("x", function(d) {
+            return (tempWidth - 5);
+        })
+        .attr("fill", "orangered")
+
+    .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+    .attr("x", function(d) {
+            return (tempWidth - horTempScale(d.TEMP) - 5);
+        })
+        .attr("height", function(d, i) {
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("width", 2)
+        .attr("fill", "orangered");
+
+//Create Humidity Container
+    var rhWidth = visWidth/4.5;
+    var rhHeight = visHeight*.95;
+
+    var rhSvg = vis.append('svg')
+    	.attr("x", visWidth*.75)
+        .append("svg")
+        .attr("width", rhWidth)
+        .attr("height", rhHeight)
+        .style("background-color", function(d) {
+            return d3.rgb(255, 250, 238)
+        });
+
+//Create Humidity Scale
+
+    var horRhScale = d3.scale.linear()
+        .domain([0,1000])
+        .range([0,rhWidth*.95]);
+
+//Create Humidity Scale Marks
+
+for (i=1; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", (.75*visWidth)+(i*(.95*rhWidth)/5))
+    .attr("y1", tempHeight+10)
+    .attr("x2", (.75*visWidth)+(i*(.95*rhWidth)/5))
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+for (i=1; i<=5; i++) { 
+    vis.append("text")
+        .text((i*20) + "%")
+        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*rhWidth)/5))
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+
+//Create Humidity Bars
+
+    var lastRec = launch1.length - 1
+
+    rhSvg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
+        })
+        .attr("x", 5)
+        .attr("height", function(d, i) {
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("fill", function(d) {
+            if (d.RH < 1000) {
+                return d3.rgb(0, 128, 128);
+            } else {
+                return d3.rgb(0, 178, 178);
+            };
+        })
+        .attr("width", 0)
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+    .attr("width", function(d) {
+        return horRhScale(d.RH);
+    });
+
+//Create Humidity Caps
+
+    rhSvg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
+        })
+        .attr("x", function(d) {
+            return 5;
+        })
+
+    .attr("fill", "coral")
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+        .attr("height", function(d, i) {
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("width", 2)
+        .attr("x", function(d) {
+            return horRhScale(d.RH)+5;
+        });
+
+    </script>
+</body>
+
+</html>
