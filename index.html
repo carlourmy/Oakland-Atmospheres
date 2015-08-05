@@ -904,7 +904,7 @@ var flightPath= svgContainer.append('svg:path')
         .text(function(d) {
             return launch1[0].Time
         })
-        .attr("font-size", "20px")
+        .attr("font-size", "17px")
         .attr("fill", "black")
         .transition()
         .duration(100*(launch1[0].Time.length))
@@ -1029,7 +1029,7 @@ for (i=1; i<=5; i++) {
         .attr("fill", "orangered");
 
 //Create Humidity Container
-    var rhWidth = visWidth/4;
+    var rhWidth = visWidth/4.5;
     var rhHeight = visHeight*.95;
 
     var rhSvg = vis.append('svg')
@@ -1051,9 +1051,9 @@ for (i=1; i<=5; i++) {
 
 for (i=1; i<=5; i++) {
 vis.append("svg:line")
-    .attr("x1", (.75*visWidth)+5+(i*(.95*rhWidth)/5))
+    .attr("x1", (.75*visWidth)+(i*(.95*rhWidth)/5))
     .attr("y1", tempHeight+10)
-    .attr("x2", (.75*visWidth)+5+(i*(.95*rhWidth)/5))
+    .attr("x2", (.75*visWidth)+(i*(.95*rhWidth)/5))
     .attr("y2", tempHeight+20)
     .attr("stroke", "silver")
     .attr("stroke-width", 1);
@@ -1062,7 +1062,7 @@ vis.append("svg:line")
 for (i=1; i<=5; i++) { 
     vis.append("text")
         .text((i*20) + "%")
-        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*tempWidth)/5))
+        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*rhWidth)/5))
         .attr("y",visHeight-1)
         .attr("font-size", "10px")
         .attr("fill", "gray");
