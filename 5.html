@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="d3.min.js"></script>
+    <script type="text/javascript" src-"https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
+    <style type="text/css">
+
+     @font-face { font-family: bell; src: url('BellGothicStd-Bold.otf'); } 
+
+    body {
+        background-color: rgb(255, 250, 238);
+        font-family: bell, sans-serif;
+    }
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    var launch1 = [{
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 5,
+      "TEMP" : 2846,
+      "RH" : 1000,
+      "UWND" : "5",
+      "VWND" : "-9"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 153,
+      "TEMP" : 2836,
+      "RH" : 935,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 351,
+      "TEMP" : 2830,
+      "RH" : 941,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 471,
+      "TEMP" : 2844,
+      "RH" : 869,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 567,
+      "TEMP" : 2866,
+      "RH" : 544,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 745,
+      "TEMP" : 2864,
+      "RH" : 192,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 1001,
+      "TEMP" : 2874,
+      "RH" : 210,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 1284,
+      "TEMP" : 2856,
+      "RH" : 222,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 1419,
+      "TEMP" : 2872,
+      "RH" : 210,
+      "UWND" : "8",
+      "VWND" : "-6"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 1517,
+      "TEMP" : 2870,
+      "RH" : 209,
+      "UWND" : "60",
+      "VWND" : "5"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 2467,
+      "TEMP" : 2836,
+      "RH" : 217,
+      "UWND" : "60",
+      "VWND" : "5"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 3132,
+      "TEMP" : 2786,
+      "RH" : 221,
+      "UWND" : "130",
+      "VWND" : "0"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 5787,
+      "TEMP" : 2599,
+      "RH" : 61,
+      "UWND" : "207",
+      "VWND" : "-36"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 7447,
+      "TEMP" : 2477,
+      "RH" : 43,
+      "UWND" : "187",
+      "VWND" : "-33"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 9108,
+      "TEMP" : 2331,
+      "RH" : 27,
+      "UWND" : "187",
+      "VWND" : "-33"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 9460,
+      "TEMP" : 2307,
+      "RH" : "N",
+      "UWND" : "281",
+      "VWND" : "-131"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 10372,
+      "TEMP" : 2245,
+      "RH" : "N",
+      "UWND" : "281",
+      "VWND" : "-131"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 10680,
+      "TEMP" : 2245,
+      "RH" : "N",
+      "UWND" : "406",
+      "VWND" : "-109"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 11086,
+      "TEMP" : 2247,
+      "RH" : "N",
+      "UWND" : "406",
+      "VWND" : "-109"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 12133,
+      "TEMP" : 2193,
+      "RH" : "N",
+      "UWND" : "483",
+      "VWND" : "-85"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 13943,
+      "TEMP" : 2117,
+      "RH" : "N",
+      "UWND" : "404",
+      "VWND" : "-71"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 16064,
+      "TEMP" : 2047,
+      "RH" : "N",
+      "UWND" : "261",
+      "VWND" : "-70"
+    },
+    {
+      "Time" : "Sun Jun 12 12:00:00 PDT 1977",
+      "CALCGPH" : 16413,
+      "TEMP" : 2051,
+      "RH" : "N",
+      "UWND" : "199",
+      "VWND" : "-93"
+    }]
+
+//Beginning Variables
+var vv = window;
+visWidth = vv.innerWidth*.95;
+visHeight = vv.innerHeight*.85;
+
+//Create Top Bar
+
+var bar = d3.select("body")
+    .append("svg")
+    .attr("width", vv.innerWidth)
+    .attr("height", 30)
+    .append("rect")
+    .attr("width", vv.innerWidth)
+    .attr("height", 50)
+    .attr("x", 0)
+    .attr("y", -20)
+    .attr("fill", "gainsboro");
+
+//Create Master Container
+
+
+// function updateWindow(){
+//     var vv = window;
+//     visWidth = vv.innerWidth;
+//     visHeight = vv.innerHeight;
+// };
+
+
+var vis= d3.select("body")
+	.append("svg")
+	.attr("width", visWidth)
+	.attr("height", visHeight)
+	.attr("y", 0);
+
+//Add Vertical Scale Text
+
+
+for (i=0; i<=22; i++) {
+    vis.append("text")
+        .text( + (i*2) + " Miles")
+        .attr("width", 100)
+        .attr("text-align", "center")
+        .attr("x", (visWidth/2)-10)
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+
+atms = [1, .63, .40, .25, .16, .10, .06, .04, .03, .02, .01]
+
+    vis.append("text")
+        .text( + (atms[i]) + " atm")
+        .attr("width", 100)
+        .attr("text-align", "center")
+        .attr("x", (visWidth)-40)
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+
+//Add Vertical Scale Lines
+
+    vis.append("svg:line")
+        .attr("x1", 5)
+        .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("x2", (visWidth/2)-20)
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+
+    vis.append("svg:line")
+        .attr("x1", (visWidth/2)+35)
+        .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("x2", visWidth-50)
+        .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1)
+        .attr("stroke-dasharray", ("3,3"));
+};
+
+
+
+//Create Container for Flight Path
+
+var svgContainer = vis.append('svg')
+    .data(launch1)
+    .append("svg")
+    .attr("width", visWidth/2)
+    .attr("height", visHeight*.95);
+
+//Add East West
+
+svgContainer.append("text")
+    .text ("West")
+    .attr("x", visWidth/4-80)
+    .attr("y", (visHeight*.95)-10)
+    .attr("fill", "gray")
+    .attr("font-size", "15px")
+
+svgContainer.append("text")
+    .text ("East")
+    .attr("x", (visWidth/4)+50)
+    .attr("y", (visHeight*.95)-10)
+    .attr("fill", "gray")
+    .attr("font-size", "15px")
+
+//Add Horizontal Mile Lines
+
+for (i=0; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y1", (.95*visHeight)+20)
+        .attr("x2", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", (.95*visHeight)+10)
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
+
+for (i=1; i<=10; i++) { 
+    vis.append("svg:line")
+        .attr("x1", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y1", (.95*visHeight)+20)
+        .attr("x2", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
+        .attr("y2", (.95*visHeight)+10)
+        .attr("stroke", "silver")
+        .attr("stroke-width", 1);
+    };
+//Add Horizontal Mile Text
+
+for (i=0; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)+(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+for (i=2; i<=10; i+=2) { 
+    vis.append("text")
+        .text(i*2)
+        .attr("x", (visWidth/4)-(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+    };
+
+//Create Running Total
+
+var xPos = [{x:0,y:0}];
+var totalWind=0;
+var totalHeight=0;
+
+for (i=1; i<launch1.length; i++ ){
+    totalWind=Math.floor(totalWind+(launch1[i-1].UWND)*((launch1[i].CALCGPH-launch1[i-1].CALCGPH)/50));
+
+    totalHeight=launch1[i].CALCGPH;
+
+    xPos.push({"x":totalWind,"y":totalHeight});
+}
+
+
+//Create Line Function
+
+var lineGen1 = d3.svg.line()
+    .x(function(d) {    
+        return (visWidth/4)+(d.x)*((visWidth/12)/35000)
+    })
+    .y(function(d) {
+        return visHeight-(d.y)*((visHeight)/35000)
+        })
+
+// Add Clipping Mask
+
+svgContainer.append('clipPath')
+    .attr ("id","mask")
+    .append("rect")
+    .attr ("x", 0)
+    .attr ("y", visHeight)
+    .attr ("width", visWidth)
+    .attr ("height", visHeight)
+    .transition()
+    .duration(50*launch1.length)
+    .ease("linear")
+    .attr ("y", visHeight-(launch1[launch1.length-1].CALCGPH*(visHeight/35000)));
+
+//Add Line
+
+var flightPath= svgContainer.append('svg:path')
+    .attr('stroke', 'black')
+    .attr('stroke-width', 3)
+    .style("stroke-dasharray", ("3, 3"))
+    .attr('fill', 'none')
+    .attr('d', lineGen1(xPos))
+    .attr("clip-path", "url(#mask)");
+
+//Add Text of Date
+
+    vis.append("text")
+        .attr("x", 20)
+        .attr("y", 20)
+        .text(function(d) {
+            return launch1[0].Time
+        })
+        .attr("font-size", "17px")
+        .attr("fill", "black")
+        .transition()
+        .duration(100*(launch1[0].Time.length))
+        .ease("linear")
+        .tween("text", function() {
+            var newText = launch1[0].Time;
+            var textLength = launch1[0].Time.length;
+            return function (t) {
+                this.textContent= newText.slice(0, Math.round(t*textLength));
+            };   
+        })
+
+//Create Temp Container
+    var tempWidth = visWidth/4;
+    var tempHeight = visHeight*.95;
+
+    var tempSvg = vis.append('svg')
+    	.attr("x", visWidth/2)
+        .append("svg")
+        .attr("width", tempWidth)
+        .attr("height", tempHeight);
+
+//Create Temp Bars Scale
+
+
+horTempScale=d3.scale.linear()
+                .domain([1887.06,3220.39])
+                .range([0,tempWidth*.95]);
+
+//Create Temp Scale Marks
+for (i=1; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
+    .attr("y1", tempHeight+10)
+    .attr("x2", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+
+for (i=1; i<=5; i++) { 
+    vis.append("text")
+        .text(-120+(i*40) + "F")
+        .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6)-10)
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+//Create Temp Bars
+    var lastRec = launch1.length - 1;
+
+    tempSvg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
+        })
+        .attr("x", tempWidth - 5)
+        .attr("height", function(d, i) {
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length+1)) - .5;
+        })
+        .attr("width", 0)
+        .attr("fill", function(d) {
+            if (d.TEMP > 2731.5) {
+                return d3.rgb(123, 156, 184);
+            } else {
+                return d3.rgb(63, 96, 124);
+            }
+        })
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+        .attr("x", function(d, i) {
+            return tempWidth-(horTempScale(d.TEMP)) - 5;
+        })
+        .attr("width", function(d) {
+            return (horTempScale(d.TEMP));
+        })
+        .attr("fill", function(d) {
+            if (d.TEMP > 2731.5) {
+                return d3.rgb(123, 156, 184);
+            } else {
+                return d3.rgb(63, 96, 124);
+            };
+        });
+
+//Create Temp Caps
+
+    tempSvg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (tempHeight - (i * (tempHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(tempHeight/launch1.length));
+        })
+        .attr("x", function(d) {
+            return (tempWidth - 5);
+        })
+        .attr("fill", "orangered")
+
+    .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+    .attr("x", function(d) {
+            return (tempWidth - horTempScale(d.TEMP) - 5);
+        })
+        .attr("height", function(d, i) {
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("width", 2)
+        .attr("fill", "orangered");
+
+//Create Humidity Container
+    var rhWidth = visWidth/4.5;
+    var rhHeight = visHeight*.95;
+
+    var rhSvg = vis.append('svg')
+    	.attr("x", visWidth*.75)
+        .append("svg")
+        .attr("width", rhWidth)
+        .attr("height", rhHeight)
+        .style("background-color", function(d) {
+            return d3.rgb(255, 250, 238)
+        });
+
+//Create Humidity Scale
+
+    var horRhScale = d3.scale.linear()
+        .domain([0,1000])
+        .range([0,rhWidth*.95]);
+
+//Create Humidity Scale Marks
+
+for (i=1; i<=5; i++) {
+vis.append("svg:line")
+    .attr("x1", (.75*visWidth)+(i*(.95*rhWidth)/5))
+    .attr("y1", tempHeight+10)
+    .attr("x2", (.75*visWidth)+(i*(.95*rhWidth)/5))
+    .attr("y2", tempHeight+20)
+    .attr("stroke", "silver")
+    .attr("stroke-width", 1);
+};
+
+for (i=1; i<=5; i++) { 
+    vis.append("text")
+        .text((i*20) + "%")
+        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*rhWidth)/5))
+        .attr("y",visHeight-1)
+        .attr("font-size", "10px")
+        .attr("fill", "gray");
+};
+
+
+//Create Humidity Bars
+
+    var lastRec = launch1.length - 1
+
+    rhSvg.selectAll("rect")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("y", function(d, i) {
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
+        })
+        .attr("x", 5)
+        .attr("height", function(d, i) {
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("fill", function(d) {
+            if (d.RH < 1000) {
+                return d3.rgb(0, 128, 128);
+            } else {
+                return d3.rgb(0, 178, 178);
+            };
+        })
+        .attr("width", 0)
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+    .attr("width", function(d) {
+        return horRhScale(d.RH);
+    });
+
+//Create Humidity Caps
+
+    rhSvg.selectAll("rect.cap")
+        .data(launch1)
+        .enter()
+        .append("rect")
+        .attr("class", "cap")
+        .attr("y", function(d, i) {
+            return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
+        })
+        .attr("x", function(d) {
+            return 5;
+        })
+
+    .attr("fill", "coral")
+        .transition()
+        .delay(function(d, i) {
+            return i * 50
+        })
+        .duration(1500)
+        .ease("linear")
+
+        .attr("height", function(d, i) {
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
+        })
+        .attr("width", 2)
+        .attr("x", function(d) {
+            return horRhScale(d.RH)+5;
+        });
+
+    </script>
+</body>
+
+</html>
