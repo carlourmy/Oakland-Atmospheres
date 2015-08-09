@@ -15,7 +15,7 @@
         font-family: bell, sans-serif;
     }
 
-
+    
 
 
     </style>
@@ -755,11 +755,12 @@ for (i=0; i<=22; i++) {
     vis.append("text")
         .text( + (i*2) + " Miles")
         .attr("width", 100)
-        .attr("text-align", "center")
-        .attr("x", (visWidth/2)-10)
-        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000)+3)
+        .attr("x", (visWidth/2))
+        .attr("y", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("font-size", "10px")
-        .attr("fill", "gray");
+        .attr("fill", "gray")
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle");
 
 atms = [1, .63, .40, .25, .16, .10, .06, .04, .03, .02, .01]
 
@@ -777,14 +778,14 @@ atms = [1, .63, .40, .25, .16, .10, .06, .04, .03, .02, .01]
     vis.append("svg:line")
         .attr("x1", 5)
         .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
-        .attr("x2", (visWidth/2)-20)
+        .attr("x2", (visWidth/2)-25)
         .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("stroke", "silver")
         .attr("stroke-width", 1)
         .attr("stroke-dasharray", ("3,3"));
 
     vis.append("svg:line")
-        .attr("x1", (visWidth/2)+35)
+        .attr("x1", (visWidth/2)+25)
         .attr("y1", .95*visHeight-(3218*i)*(visHeight/35000))
         .attr("x2", visWidth-50)
         .attr("y2", .95*visHeight-(3218*i)*(visHeight/35000))
@@ -845,19 +846,21 @@ for (i=1; i<=10; i++) {
 for (i=0; i<=10; i+=2) { 
     vis.append("text")
         .text(i*2)
-        .attr("x", (visWidth/4)+(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("x", (visWidth/4)+(i*(3219*((visWidth/4)/35000))))
         .attr("y",visHeight-1)
         .attr("font-size", "10px")
-        .attr("fill", "gray");
+        .attr("fill", "gray")
+        .attr("text-anchor", "middle");
 };
 
 for (i=2; i<=10; i+=2) { 
     vis.append("text")
         .text(i*2)
-        .attr("x", (visWidth/4)-(i*(3219*((visWidth/4)/35000)))-3)
+        .attr("x", (visWidth/4)-(i*(3219*((visWidth/4)/35000))))
         .attr("y",visHeight-1)
         .attr("font-size", "10px")
-        .attr("fill", "gray");
+        .attr("fill", "gray")
+        .attr("text-anchor", "middle");
     };
 
 //Create Running Total
@@ -903,7 +906,7 @@ svgContainer.append('clipPath')
 
 var flightPath= svgContainer.append('svg:path')
     .attr('stroke', 'black')
-    .attr('stroke-width', 3)
+    .attr('stroke-width', 2.5)
     .style("stroke-dasharray", ("3, 3"))
     .attr('fill', 'none')
     .attr('d', lineGen1(xPos))
@@ -962,10 +965,11 @@ vis.append("svg:line")
 for (i=1; i<=5; i++) { 
     vis.append("text")
         .text(-120+(i*40) + "F")
-        .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6)-10)
+        .attr("x", ((.5*visWidth)+tempWidth-5)-(i*(.95*tempWidth)/6))
         .attr("y",visHeight-1)
         .attr("font-size", "10px")
-        .attr("fill", "gray");
+        .attr("fill", "gray")
+        .attr("text-anchor", "middle");
 };
 
 //Create Temp Bars
@@ -1024,6 +1028,8 @@ for (i=1; i<=5; i++) {
             return (tempWidth - 5);
         })
         .attr("fill", "orangered")
+        .attr("height", function(d, i) {
+            return ((tempHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5
 
     .transition()
         .delay(function(d, i) {
@@ -1075,10 +1081,11 @@ vis.append("svg:line")
 for (i=1; i<=5; i++) { 
     vis.append("text")
         .text((i*20) + "%")
-        .attr("x", ((.5*visWidth)+tempWidth-5)+(i*(.95*rhWidth)/5))
+        .attr("x", ((.5*visWidth)+tempWidth)+(i*(.95*rhWidth)/5))
         .attr("y",visHeight-1)
         .attr("font-size", "10px")
-        .attr("fill", "gray");
+        .attr("fill", "gray")
+        .attr("text-anchor", "middle");
 };
 
 
@@ -1146,6 +1153,7 @@ for (i=1; i<=5; i++) {
             return horRhScale(d.RH)+5;
         });
 
+console.log(launch1);
     </script>
 </body>
 
