@@ -679,9 +679,13 @@ for (i=1; i<=5; i++) {
         .duration(1500)
         .ease("linear")
 
-    .attr("width", function(d) {
-        return horRhScale(d.RH);
-    });
+       .attr("width", function(d) {
+          if (d.RH === "N") {
+            return 0;
+          } else {
+        return horRhScale(d.RH)
+          }
+        });
 
 //Create Humidity Caps
 
@@ -693,11 +697,24 @@ for (i=1; i<=5; i++) {
         .attr("y", function(d, i) {
             return (rhHeight - (i * (rhHeight / launch1.length)) / (35000 / (launch1[lastRec].CALCGPH))-(rhHeight/launch1.length));
         })
-        .attr("x", function(d) {
-            return 5;
+        .attr("height", function(d, i) {
+            return ((rhHeight / (35000 / (launch1[lastRec].CALCGPH))) / (launch1.length-1)) - .5;
         })
-
-    .attr("fill", "coral")
+        .attr("x", 5)
+        .attr("fill", function(d){
+            if (d.RH==="N") {
+              return d3.rgb(248, 131, 121);
+            } else {
+              return "coral";
+            }
+          })
+        .attr("opacity", function(d){
+            if (d.RH==="N") {
+              return .5;
+            } else {
+              return 1;
+            }
+        })
         .transition()
         .delay(function(d, i) {
             return i * 50
@@ -710,7 +727,11 @@ for (i=1; i<=5; i++) {
         })
         .attr("width", 2)
         .attr("x", function(d) {
-            return horRhScale(d.RH)+5;
+           if (d.RH === "N") {
+            return 5;
+          } else {
+        return horRhScale(d.RH)+5
+          }
         });
 
     </script>
